@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+// const axios = require('axios');
+
 require('dotenv').config();
 const PORT = process.env.PORT || 3002;
 
@@ -11,7 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', (req, res) => {
-  res.json({ message: 'hello from the server!' });
+  res.send('Hello from home route');
+});
+
+app.get('/protected', (req, res) => {
+  res.send('Hello from protected route');
 });
 
 app.listen(PORT, () => {
