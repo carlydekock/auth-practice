@@ -37,8 +37,20 @@ app.get('/', (req, res) => {
   res.send('Hello from home route');
 });
 
-app.get('/protected', verifyJwt, (req, res) => {
-  res.send('Hello from protected route');
+app.get('/protected', verifyJwt, async (req, res) => {
+  try {
+    const accessToken = req.headers.authorization.split(' ')[1];
+    const response = await axios.get('https://dev-yiij3usi.us.auth0.com/userinfo', {
+      headers: {
+        authorization: `Bearer ${accessToken}`
+      }
+    });
+    const userInfo = response.data;
+    console.log(userInfo);
+    res.send(userInfo);
+  } catch(err){
+    res.send(error.message);
+  }
 });
 
 app.use((req, res, next) => {

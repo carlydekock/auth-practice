@@ -44,7 +44,7 @@ function App() {
         <li><button onClick={loginWithRedirect}>Login with Redirect</button></li>
         <li><button onClick={logout}>Logout</button></li>
       </ul>
-      <h3>User is { isAuthenticated ? "Logged in" : "Not logged in" } </h3>
+      <h3 style={{textAlign: "center"}}>USER IS: { isAuthenticated ? "Logged in" : "Not logged in" } </h3>
       { isAuthenticated && <pre style={{textAlign: 'start'}}>{JSON.stringify(user, null, 2)}</pre> }
       
       <ul style={{listStyle: "none"}}>
