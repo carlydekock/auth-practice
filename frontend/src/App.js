@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Auth0 authentication</h1>
+      <h1>Auth0 Authentication Practice</h1>
       <ul style={{listStyle: "none"}}>
         <li><button onClick={loginWithPopup}>Login with Popup</button></li>
         <li><button onClick={loginWithRedirect}>Login with Redirect</button></li>
