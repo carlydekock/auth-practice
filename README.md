@@ -4,6 +4,7 @@
 
 - Tutorial from Yours Truly on Youtube [here](https://www.youtube.com/watch?v=GGGjnBkN8xk&ab_channel=yoursTRULY)
 - Auth0 docs [here for frontend](https://auth0.com/docs/quickstart/spa/react) and [here for backend](https://auth0.com/docs/quickstart/spa/react/02-calling-an-api)
+- Reminders of setup for Express backend and React (using create-react-app) frontend [here](https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/)
 
 ## Setup/What You Need
 
