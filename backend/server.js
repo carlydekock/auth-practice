@@ -14,6 +14,7 @@ const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
 const app = express();
 
+//This will be middleware that checks for valid jwt
 const verifyJwt = jwt({
   secret: jwks.expressJwtSecret({
     cache: true,
@@ -26,8 +27,6 @@ const verifyJwt = jwt({
   algorithms: ['RS256'],
 });
 
-// app.use(verifyJwt);
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +36,7 @@ app.get('/', (req, res) => {
   res.send('Hello from home route');
 });
 
+//alternative to using this as middleware for each desired route is to use it on the whole app with app.use(verifyJwt); and then include "exception" routes as an additional parameter in the verifyJwt function
 app.get('/protected', verifyJwt, async (req, res) => {
   try {
     const accessToken = req.headers.authorization.split(' ')[1];
