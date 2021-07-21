@@ -7,6 +7,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 require('dotenv').config();
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +15,8 @@ ReactDOM.render(
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
+      audience={audience}
+      scope="openid profile email"
     >
       <App />
     </Auth0Provider>

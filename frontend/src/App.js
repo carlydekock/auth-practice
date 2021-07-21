@@ -17,18 +17,23 @@ function App() {
     try {
       axios.get('http://localhost:3001/').then(response => console.log(response.data));
     } catch(err){
-      console.log(err);
+      console.log(err.message);
     }
   }
 
   async function callProtectedApi(){
-    const token = await getAccessTokenSilently();
-    console.log(token);
-    // try {
-    //   axios.get('http://localhost:3001/protected').then(response => console.log(response.data));
-    // } catch(err) {
-    //   console.log(err);
-    // }
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await axios.get('http://localhost:3001/protected', {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      })
+      console.log(response.data);
+    } catch (err){
+      console.log(err.message);
+    }
+
   }
 
   return (
